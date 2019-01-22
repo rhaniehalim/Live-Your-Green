@@ -1,6 +1,8 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var session = require("express-session");
+var passport = require("./config/passport");
 
 // Sets up the Express App
 var app = express();
@@ -15,6 +17,12 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+//Use sessions to track if user is logged in
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -31,4 +39,10 @@ db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-});
+
+  db.Member.findOne({where:{email: "me@gmail.com"}}).then(function(user){
+    if (!user) {
+      db.Member.build({email: "me@gmail.com", password: "admin"}).save();
+    }
+  })
+}); 
