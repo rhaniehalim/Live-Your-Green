@@ -5,7 +5,12 @@ module.exports = function(app) {
 
   // index route 
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index"));
+    connection.query("SELECT * FROM footprint;", function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+        res.render("index", { footprint: data })
+    })
   });
 
   // footprint calculator route

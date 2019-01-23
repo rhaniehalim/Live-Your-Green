@@ -31,7 +31,7 @@ $(document).ready(function() {
       console.log('userInput = ' + JSON.stringify(userInput));
 
        // Send the POST request.
-       $.ajax("/api/footprint/", {
+       $.ajax("/footprint/", {
         type: "POST",
         data: userInput
       }).then(
@@ -43,5 +43,4 @@ $(document).ready(function() {
       );
     });
 
-    function submitSurvey()
 });
