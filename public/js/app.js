@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    $("#submitBtn").on("click", function (event) {
+    var url = window.location.search;
+
+    $("#submitBtn").on("click", function handleSurveySubmit(event) {
       event.preventDefault();
 
       var userInput = {
@@ -21,12 +23,17 @@ $(document).ready(function() {
         air_travel: $('input[name=flight]:checked').val(),  
       };
 
+      if (!userInput.val()) {
+          return;
+      }
+
+
       console.log('userInput = ' + JSON.stringify(userInput));
 
        // Send the POST request.
-       $.ajax("/api/calculator/", {
+       $.ajax("/api/footprint/", {
         type: "POST",
-        data: newUser
+        data: userInput
       }).then(
         function() {
           console.log("new user data submitted");
@@ -35,4 +42,6 @@ $(document).ready(function() {
         }
       );
     });
+
+    function submitSurvey()
 });
