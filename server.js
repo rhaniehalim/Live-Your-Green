@@ -3,6 +3,7 @@
 var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
+var MySQLStore = require('express-mysql-session')(session);
 
 // Sets up the Express App
 var app = express();
@@ -18,8 +19,28 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+//sets options for session table to be created
+var options = {
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'root',
+  database: 'projectTwo'
+};
+
+//creates a session table
+var sessionStore = new MySQLStore(options);
+
 //Use sessions to track if user is logged in
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session(
+  {
+    secret: "keyboard cat", 
+    store: sessionStore,
+    resave: false, 
+    saveUninitialized: false 
+  }
+));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -33,6 +54,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
+require("./routes/api_passport_route")(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function() {
