@@ -19,9 +19,20 @@ $(document).ready(function() {
         personal_vehicle: $('input[name=vehicle]:checked').val(),
         public_transportation: $('input[name=public]:checked').val(),
         air_travel: $('input[name=flight]:checked').val(),  
-      }
+      };
 
       console.log('userInput = ' + JSON.stringify(userInput));
 
+       // Send the POST request.
+       $.ajax("/api/calculator/", {
+        type: "POST",
+        data: newUser
+      }).then(
+        function() {
+          console.log("new user data submitted");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
     });
 });

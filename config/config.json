@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "projectTwo",
+    "database": "liveyourgreen",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "port": 3306
