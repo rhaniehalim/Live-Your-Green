@@ -5,27 +5,21 @@ module.exports = function(app) {
 
   // index route 
   app.get("/", function(req, res) {
-    connection.query("SELECT * FROM footprints;", function (err, data) {
-        if (err) {
-            return res.status(500).end();
-        }
-        res.render("index", { footprints: data })
-    })
+    res.render("index");
   });
 
   // footprint calculator route
   app.get("/footprints", function(req, res) {
-    res.sendFile(path.join(__dirname, "calculator"));
+    res.render("calculator");
   });
 
-  // checklist route
-  app.get("/checklist", function(req, res) {
-    res.sendFile(path.join(__dirname, "checklist"));
+  // earth911 route
+  app.get("/recyclinglocations", function(req, res) {
+    res.render("maps");
   });
 
-//   // resources route
-//   app.get("/resources", function(req, res) {
-//     res.sendFile(path.join(__dirname, "resources"));
-//   });
+  app.get("/userprofile", function(req, res) {
+    res.render("user");
+  });
 
 };
