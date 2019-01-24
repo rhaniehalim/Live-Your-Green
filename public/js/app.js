@@ -31,7 +31,7 @@ $(document).ready(function() {
       console.log('userInput = ' + JSON.stringify(userInput));
 
        // Send the POST request.
-       $.ajax("/footprint/", {
+       $.ajax("/footprints/", {
         type: "POST",
         data: userInput
       }).then(

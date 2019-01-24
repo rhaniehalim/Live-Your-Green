@@ -5,16 +5,16 @@ module.exports = function(app) {
 
   // index route 
   app.get("/", function(req, res) {
-    connection.query("SELECT * FROM footprint;", function (err, data) {
+    connection.query("SELECT * FROM footprints;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
-        res.render("index", { footprint: data })
+        res.render("index", { footprints: data })
     })
   });
 
   // footprint calculator route
-  app.get("/footprint", function(req, res) {
+  app.get("/footprints", function(req, res) {
     res.sendFile(path.join(__dirname, "calculator"));
   });
 
