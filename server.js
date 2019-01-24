@@ -15,12 +15,14 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+const publicPath = path.join(__dirname, "./public"); //causing error in node!!!!
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use("/", express.static(publicPath));
 
 // Routes
 require("./routes/htmlRoutes.js")(app);
