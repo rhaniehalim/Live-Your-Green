@@ -4,14 +4,20 @@ var db = require("../models");
 
 passport.use(new LocalStrategy(
     {
-        usernamefield: "email"
+        usernamefield: "email",
+        passwordField: "password"
     },
     function (email, password, done) {
         db.Member.findOne({
             where: {
                 email: email
             }
+        
         }).then(function (err, user) {
+
+            console.log(`login email: ${email}`);
+            console.log(`login password: ${password}`);
+
             if (err) {
                 return done(err);
             }
@@ -25,19 +31,19 @@ passport.use(new LocalStrategy(
                 });
             }
 
-            return done(null, user);
+            return done(null, user); 
         });
     }
 ))
 
 // //tracks authentication across HTTP requests
-// passport.serializeUser(function (user, cb) {
-//     cb(null, user);
-// });
+passport.serializeUser(function (user, cb) {
+    cb(null, user);
+});
 
-// passport.deserializeUser(function (obj, cb) {
-//     cb(null, obj);
-// });
+passport.deserializeUser(function (obj, cb) {
+    cb(null, obj);
+});
 
 
 

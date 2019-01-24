@@ -52,9 +52,17 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/htmlRoutes.js")(app);
-require("./routes/apiRoutes.js")(app);
-require("./routes/api_passport_route")(app);
+var authroutes = require("./routes/apiRoutes.js");
+var routes = require("./routes/htmlRoutes.js");
+var passroute = require("./routes/api_passport_route");
+
+// app.use(authroutes);
+app.use(routes);
+app.use(passroute);
+
+// require("./routes/htmlRoutes.js")(app);
+// require("./routes/apiRoutes.js")(app);
+// require("./routes/api_passport_route")(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function() {

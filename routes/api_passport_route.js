@@ -1,17 +1,63 @@
 var db = require("../models");
 var passport = require("../config/passport");
 var bcrypt = require("bcrypt-nodejs");
+var express = require("express");
+var router = express.Router();
 
-module.exports = function (app) {
 
     //route to log in member
-    app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    //need to add sucess/failure redirect once html routes are set
+    // router.post("/api/login", passport.authenticate('local'), function (err, req, res) {
+    //     if (err) throw err;
+    //     res.json(req.body.email)
+    // })
 
-        res.json(req.body.email)
-    })
+    // app.post("/api/login", passport.authenticate('local', {
+    //     successMessage: "Login complete.",
+    //     failureMessage: "Login unsuccessful."
+    // }));
+
+
+    router.post('/api/login',
+    // wrap passport.authenticate call in a middleware function
+    function (req, res, next) {
+
+        console.log(req.body.email)
+        console.log(req.body.password)
+      // call passport authentication passing the "local" strategy name and a callback function
+      passport.authenticate('local', function (error, email, info) {
+        // this will execute in any case, even if a passport strategy will find an error
+        // log everything to console
+        console.log(error);
+        console.log("email:" + email);
+        console.log(info);
+  
+        if (error) {
+            console.log("there was an error")
+          res.status(401).send(error);
+        } else if (!email) {
+            console.log("there was no user")
+        //   res.status(401).send(info);
+        } else {
+          next();
+        }
+  
+        res.status(401).send(info);
+      })(req, res);
+    },
+  
+    // function to call once successfully authenticated
+    function (req, res) {
+      res.status(200).send('logged in!');
+    }
+    );
+
+
+
+
 
     //route to sign members up
-    app.post("/api/signup", function (req, res) {
+    router.post("/api/signup", function (req, res) {
         console.log(req.body);
 
         var email = req.body.email;
@@ -49,4 +95,5 @@ module.exports = function (app) {
     passport.deserializeUser(function (member, cb) {
         cb(null, member);
     });
-}
+
+module.exports = router;
