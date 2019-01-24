@@ -28,9 +28,9 @@ var router = express.Router();
       passport.authenticate('local', function (error, email, info) {
         // this will execute in any case, even if a passport strategy will find an error
         // log everything to console
-        console.log(error);
-        console.log("email:" + email);
-        console.log(info);
+        console.log("error", error);
+        console.log("email:", email);
+        console.log("info", info);
   
         if (error) {
             console.log("there was an error")
@@ -43,7 +43,7 @@ var router = express.Router();
         }
   
         res.status(401).send(info);
-      })(req, res);
+      })(req, res, next);
     },
   
     // function to call once successfully authenticated

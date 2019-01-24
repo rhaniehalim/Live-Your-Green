@@ -8,6 +8,10 @@ passport.use(new LocalStrategy(
         passwordField: "password"
     },
     function (email, password, done) {
+        console.log("passport.js email: ", email);
+        console.log("passport.js password: ", password);
+        console.log("passport.js done: ", done);
+        
         db.Member.findOne({
             where: {
                 email: email
