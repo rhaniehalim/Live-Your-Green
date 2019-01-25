@@ -17,6 +17,7 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+//const publicPath = path.join(__dirname, "./public"); //causing error in node!!!!
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
@@ -29,6 +30,7 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+//app.use("/", express.static(publicPath));
 
 // Routes
 require("./routes/htmlRoutes.js")(app);

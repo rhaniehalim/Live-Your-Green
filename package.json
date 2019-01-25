@@ -1,5 +1,5 @@
 {
-  "name": "Project-Two",
+  "name": "Live-Your-Green",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhaniehalim/Project-Two.git"
+    "url": "git+https://github.com/rhaniehalim/Live-Your-Green.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rhaniehalim/Project-Two/issues"
+    "url": "https://github.com/rhaniehalim/Live-Your-Green/issues"
   },
-  "homepage": "https://github.com/rhaniehalim/Project-Two#readme",
+  "homepage": "https://github.com/rhaniehalim/Project-Twon#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "express": "^4.16.4",

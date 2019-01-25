@@ -3,7 +3,7 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
+  // If the user has valid login credentials, send them to the profile page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
@@ -12,9 +12,7 @@ module.exports = function(app) {
     res.json("/profile");
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
+  
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
@@ -37,18 +35,50 @@ module.exports = function(app) {
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    }
-    else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
+        if (!req.user) {
+        // The user is not logged in, send back an empty object
+        res.json({});
+        }
+        else {
+        // Otherwise send back the user's email and id
+        // Sending back a password, even a hashed password, isn't a good idea
+        res.json({
+            email: req.user.email,
+            id: req.user.id
+        });
+        }
+  });
+
+  // GET route for getting all of the survey results
+  app.get("/api/footprints/", function(req, res) {
+    db.Footprints.findAll({})
+      .then(function(dbFootprint) {
+        res.json(dbFootprint);
       });
-    }
+  });
+
+  // Get route for retrieving a single survey
+  app.get("/api/footprints/:id", function(req, res) {
+    db.Footprints.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbFootprint) {
+        res.json(dbFootprint);
+      });
+  });
+
+  // POST route for saving a new footprint survey
+  app.post("/api/footprints", function(req, res) {
+    console.log(req.body);
+    db.Footprints.create({
+      variable_name: req.body.variable_name,
+      value: req.body.value
+    })
+      .then(function(dbFootprint) {
+        res.json(dbFootprint);
+      });
   });
 
 };

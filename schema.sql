@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS projectTwo;
-CREATE DATABASE projectTwo;
+DROP DATABASE IF EXISTS liveyourgreen;
+CREATE DATABASE liveyourgreen;
