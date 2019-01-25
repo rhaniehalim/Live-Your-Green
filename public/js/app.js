@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    $("#submitBtn").on("click", function (event) {
+    var url = window.location.search;
+
+    $("#submitBtn").on("click", function handleSurveySubmit(event) {
       event.preventDefault();
 
       var userInput = {
@@ -19,9 +21,26 @@ $(document).ready(function() {
         personal_vehicle: $('input[name=vehicle]:checked').val(),
         public_transportation: $('input[name=public]:checked').val(),
         air_travel: $('input[name=flight]:checked').val(),  
+      };
+
+      if (!userInput.val()) {
+          return;
       }
+
 
       console.log('userInput = ' + JSON.stringify(userInput));
 
+       // Send the POST request.
+       $.ajax("/footprints/", {
+        type: "POST",
+        data: userInput
+      }).then(
+        function() {
+          console.log("new user data submitted");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
     });
+
 });
