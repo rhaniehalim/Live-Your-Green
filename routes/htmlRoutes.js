@@ -10,9 +10,17 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-          res.redirect("profile");
+          res.redirect("index");
         }
         // res.sendFile(path.join(__dirname, "../public/signup.html"));
+        res.render("landing")
+    });
+
+    app.get("/signup", function(req, res) {
+
+        if (req.user) {
+            res.redirect("/profile");
+        }
         res.render("signup")
     });
     
@@ -26,8 +34,8 @@ module.exports = function(app) {
     
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/profile", isAuthenticated, function(req, res) {
-    res.render("profile")
+    app.get("/index", isAuthenticated, function(req, res) {
+    res.render("index")
     });
 
     // footprint calculator route

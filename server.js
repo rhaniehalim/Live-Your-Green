@@ -4,6 +4,7 @@ var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
 
+
 // Sets up the Express App
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -23,6 +24,7 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 // Set Handlebars.
