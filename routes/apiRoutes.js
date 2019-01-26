@@ -1,16 +1,37 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var flash = require('connect-flash');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the profile page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-    // So we're sending the user back the route to the members page because the redirect will happen on the front end
-    // They won't get this or even be able to access this page if they aren't authed
+   
+    if (err) { return next(err); }
+        if (!user) { 
+            res.status(401);
+            res.end(info.message);
+            return;
+        }
     res.json("/profile");
+    // res.redirect("/profile")
   });
+
+    // app.post('/api/login', function(req, res, next) {
+    //     passport.authenticate('local', function(err, user, info) {
+    //     console.log("hitting /api/login after incorrect password");
+    //     if (err) { return next(err); }
+    //     if (!user) { 
+    //         res.status(401);
+    //         res.end(info.message);
+    //         return;
+    //     }
+    
+    //     res.redirect("/profile")
+    
+    //     })(req, res, next);
+    // });
 
   
   app.post("/api/signup", function(req, res) {
@@ -19,7 +40,10 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }).then(function() {
-      res.redirect(307, "/api/login");
+        
+    //   res.status(200).render("profile", data.dataValues.email);
+        res.redirect(307, "/api/login")
+      
     }).catch(function(err) {
       console.log(err);
       res.json(err);
