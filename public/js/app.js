@@ -51,16 +51,38 @@ $(document).ready(function() {
     console.log('userInput = ' + JSON.stringify(userInput));
     console.log('total footprint =' + totalFootprint);
 
-           // Send the POST request.
-           $.ajax("/footprints/", {
-            type: "POST",
-            data: userInput
-          }).then(
-            function() {
-              console.log("new user data submitted");
-              // Reload the page to get the updated list
-              location.reload();
-            }
-          );
+    if (isNaN(totalFootprint)) {
+      alert("Please complete all questions in the survey! Thanks!");
+    } else {
+      // If we have a number for total footprint 
+      sendSurvey(userInput.household_members, userInput.home_size, userInput.food_choice, userInput.food_source, 
+        userInput.waterTotal, userInput.purchases, userInput.waste, userInput.recycle, userInput.personal_vehicle, 
+        userInput.public_transportation, userInput.air_travel, userInput.totalFootprint);
+    };
+    
+    // Send the POST request.
+    function sendSurvey(household_members, home_size, food_choice, food_source, waterTotal, purchases, waste, recycleArray, personal_vehicle, public_transportation, air_travel, totalFootprint) {
+    $.post("/api/footprints", {
+      household_members: household_members,
+      home_size: home_size,
+      food_choice: food_choice,
+      food_source: food_source,
+      waterTotal: waterTotal,
+      purchases: purchases,
+      waste: waste,
+      recycle: recycleArray,
+      personal_vehicle: personal_vehicle,
+      public_transportation: public_transportation,
+      air_travel: air_travel,
+      totalFootprint: totalFootprint
+    }).then(function(data) {
+      window.location.replace(data);
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })      
+    .catch(function(err) {
+      res.json(err);
+      console.log(err);
+    });
+  };
   });
 });
