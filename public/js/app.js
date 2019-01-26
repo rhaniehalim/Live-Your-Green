@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+  console.log("IN APP.JS");
+  
     var url = window.location.search;
 
     $("#submitBtn").on("click", function handleSurveySubmit(event) {
