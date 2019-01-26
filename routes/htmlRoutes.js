@@ -39,7 +39,11 @@ module.exports = function(app) {
     });
 
     // footprint calculator route
-    app.get("/footprints", isAuthenticated, function(req, res) {
+    // app.get("/footprints", isAuthenticated, function(req, res) {
+    //     res.render("calculator");
+    // });
+
+    app.get("/footprints", function(req, res) {
         res.render("calculator");
     });
 
