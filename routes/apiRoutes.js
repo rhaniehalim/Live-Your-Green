@@ -51,15 +51,19 @@ module.exports = function(app) {
 
   // GET route for getting all of the survey results
   app.get("/api/footprints/", function(req, res) {
-    db.Footprints.findAll({})
-      .then(function(dbFootprint) {
-        res.json(dbFootprint);
-      });
+    db.Footprint.findAll({}).then(function(surveys) {
+      res.json(surveys);
+    })
+    .catch(function(err) {
+      res.json(err);
+      console.log(err);
+    })
+   
   });
 
   // Get route for retrieving a single survey
   app.get("/api/footprints/:id", function(req, res) {
-    db.Footprints.findOne({
+    db.Footprint.findOne({
       where: {
         id: req.params.id
       }
@@ -72,13 +76,28 @@ module.exports = function(app) {
   // POST route for saving a new footprint survey
   app.post("/api/footprints", function(req, res) {
     console.log(req.body);
-    db.Footprints.create({
-      variable_name: req.body.variable_name,
-      value: req.body.value
+    db.Footprint.create({
+      household_members: req.body.household_members,
+      home_size: req.body.home_size,
+      food_choice: req.body.food_choice,
+      food_source: req.body.food_source,
+      waterTotal: req.body.waterTotal,
+      purchases: req.body.purchases,
+      waste: req.body.waste,
+      recycle: req.body.recycle,
+      personal_vehicle: req.body.personal_vehicle,
+      public_transportation: req.body.public_transportation,
+      air_travel: req.body.air_travel,
+      totalFootprint: req.body.totalFootprint
     })
       .then(function(dbFootprint) {
         res.json(dbFootprint);
-      });
+        console.log("new survey", dbFootprint.dataValues);
+      })
+      .catch(function(err) {
+        res.json(err);
+        console.log(err);
+      })
   });
 
 };
