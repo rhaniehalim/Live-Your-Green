@@ -1,6 +1,11 @@
+    {{> header/header-block}}
+
     <div class="container">
+        <h2>Carbon Footprint Calculator</h2>
+        <hr>
+        <br>
         <form id="surveyId">
-            <fieldset class="form-group1">
+             <fieldset class="form-group1">
                 <div class="row">
                     <legend class="col-form-label col-sm-5 pt-0">Count the members of your household:
                     </legend>
@@ -50,6 +55,8 @@
                     </div>
                 </div>
             </fieldset>
+            <hr>
+            <br>
             <fieldset class="form-group2">
                 <div class="row">
                     <legend class="col-form-label col-sm-5 pt-0">Consider the size of your home:
@@ -82,6 +89,8 @@
                     </div>
                 </div>
             </fieldset>
+            <hr>
+            <br>
             <fieldset class="form-group3">
                 <div class="row">
                     <legend class="col-form-label col-sm-5 pt-0">Evaluate your food choices:
@@ -124,6 +133,8 @@
                     </div>
                 </div>
             </fieldset>
+            <hr>
+            <br>
             <fieldset class="form-group4">
                 <div class="row">
                     <legend class="col-form-label col-sm-5 pt-0">Examine your water consumption:
@@ -165,6 +176,8 @@
                     </select>
                 </div>
             </fieldset>
+            <hr>
+            <br>
             <fieldset class="form-group5">
                     <div class="row">
                         <legend class="col-form-label col-sm-5 pt-0">Determine how many household purchases (furniture, electronics, household gadgets, etc) you make each year:
@@ -203,6 +216,8 @@
                         </div>
                     </div>
                 </fieldset>
+                <hr>
+                <br>
                 <fieldset class="form-group6">
                     <div class="row">
                         <legend class="col-form-label col-sm-5 pt-0">Consider how much waste you produce:
@@ -242,6 +257,8 @@
                         </div>
                     </div>
                 </fieldset>
+                <hr>
+                <br>
                 <fieldset class="form-group7">
                     <div class="row">
                         <legend class="col-form-label col-sm-5 pt-0">Identify the types of waste that you recycle:
@@ -292,6 +309,8 @@
                         </div>
                     </div>
                 </fieldset>
+                <hr>
+                <br>
                 <fieldset class="form-group8">
                     <div class="row">
                         <legend class="col-form-label col-sm-5 pt-0">Tally your annual transportation costs:
@@ -330,8 +349,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-5"></div>
-                            <div class="col-sm-7 set2">
+                            <div class="col-sm-7"></div>
+                            <div class="col-sm-5 set2">
                                 <h5>What is your public transportation usage?</h5>
                                 <div class="form-check">
                                     <input class="form-check-input eighth" type="radio" name="public" value="12">
@@ -370,39 +389,40 @@
                                     </label>
                                 </div> 
                             </div>
-                            <div class="row">
-                                <div class="col-sm-5"></div>
-                                <div class="col-sm-7 set3">
-                                    <h5>What is your air travel usage?</h5>
-                                    <div class="form-check">
-                                        <input class="form-check-input eighth" type="radio" name="flight" value="6">
-                                        <label class="form-check-label" for="1">
-                                            Travel to nearby states a couple times a year
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input eighth" type="radio" name="flight" value="12">
-                                        <label class="form-check-label" for="2">
-                                            Travel to nearby states more than 4 times a year
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input eighth" type="radio" name="flight" value="20">
-                                        <label class="form-check-label" for="3">
-                                            Travel to other continents during the year
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input eighth" type="radio" name="flight" value="0">
-                                        <label class="form-check-label" for="4">
-                                            I don't use air travel
-                                        </label>
-                                    </div>
-                                </div>
+                    <div class="row">
+                        <div class="col-sm-7"></div>
+                        <div class="col-sm-5 set3">
+                            <h5>What is your air travel usage?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input eighth" type="radio" name="flight" value="6">
+                                <label class="form-check-label" for="1">
+                                    Travel to nearby states a couple times a year
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input eighth" type="radio" name="flight" value="12">
+                                <label class="form-check-label" for="2">
+                                    Travel to nearby states more than 4 times a year
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input eighth" type="radio" name="flight" value="20">
+                                <label class="form-check-label" for="3">
+                                    Travel to other continents during the year
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input eighth" type="radio" name="flight" value="0">
+                                <label class="form-check-label" for="4">
+                                    I don't use air travel
+                                </label>
+                            </div>
                         </div>
                     </div>
+                    </div>
                 </fieldset>            
-                
+                <br>
+                <br>
             <div class="form-group row">
                 <div class="col-sm-10">
                 <button id="submitBtn" type="submit" class="btn btn-secondary-lg">Calculate My Footprint</button>
