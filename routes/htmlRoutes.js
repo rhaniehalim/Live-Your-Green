@@ -34,9 +34,13 @@ module.exports = function(app) {
     
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/index", isAuthenticated, function(req, res) {
-    res.render("index")
-    });
+    // app.get("/index", isAuthenticated, function(req, res) {
+    // res.render("index")
+    // });
+
+    app.get("/index", function(req, res) {
+        res.render("index")
+        });
 
     // footprint calculator route
     // app.get("/footprints", isAuthenticated, function(req, res) {
@@ -48,9 +52,11 @@ module.exports = function(app) {
     });
 
     // earth911 route
-    app.get("/recyclinglocations", isAuthenticated, function(req, res) {
+    // app.get("/recyclinglocations", isAuthenticated, function(req, res) {
+    //     res.render("maps");
+    // });
+
+    app.get("/recyclinglocations", function(req, res) {
         res.render("maps");
     });
-
-
 };
