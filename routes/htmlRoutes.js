@@ -40,33 +40,37 @@ module.exports = function(app) {
     // });
 
     app.get("/index", function(req, res) {
-        db.Footprint.findAll({
-            where: {
-                id: req.params.id
-            },
-        })
-        .then(function(totalFootprint) {
-            res.render("index", {
-                name: "Meghan", //need to change to the user's custom name
-                totalFootprint: totalFootprint,
-                household_members: household_members,
-                home_size: home_size,
-                food_choice: food_choice,
-                food_source: food_source,
-                waterTotal: waterTotal,
-                purchases: purchases,
-                waste: waste,
-                recycle: recycleArray,
-                personal_vehicle: personal_vehicle,
-                public_transportation: public_transportation,
-                air_travel: air_travel
-            });
-        })
-        .catch(function(err) {
-            res.json(err);
-            console.log(err);
-        })
-        });
+    res.render("index")
+    });
+
+    // app.get("/index", function(req, res) {
+    //     db.Footprint.findAll({
+    //         where: {
+    //             id: req.params.id
+    //         },
+    //     })
+    //     .then(function(totalFootprint) {
+    //         res.render("index", {
+    //             name: "Meghan", //need to change to the user's custom name
+    //             totalFootprint: totalFootprint,
+    //             household_members: household_members,
+    //             home_size: home_size,
+    //             food_choice: food_choice,
+    //             food_source: food_source,
+    //             waterTotal: waterTotal,
+    //             purchases: purchases,
+    //             waste: waste,
+    //             recycle: recycleArray,
+    //             personal_vehicle: personal_vehicle,
+    //             public_transportation: public_transportation,
+    //             air_travel: air_travel
+    //         });
+    //     })
+    //     .catch(function(err) {
+    //         res.json(err);
+    //         console.log(err);
+    //     })
+    //     });
 
     // footprint calculator route
     // app.get("/footprints", isAuthenticated, function(req, res) {
