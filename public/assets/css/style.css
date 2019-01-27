@@ -1,0 +1,30 @@
+body {
+    background: url(/images/pexels-photo-305558.jpeg);
+    /* background: blue; */
+}
+
+.jumbotron {
+    background-color: #6dc030;
+}
+
+.title {
+    /* font-family: 'Kaushan Script', cursive; */
+    font-family: 'Bad Script', cursive;
+    /* font-family: 'Shadows Into Light Two', cursive; */
+    font-size: 6rem;
+    padding-top: 50px;
+    
+}
+
+.btn-primary {
+    background-color: #446832;
+    /* border-color: #739e5e; */
+    border-color: black;
+    color: black;
+    margin: 0, 15px; 
+}
+
+.btn-primary:hover {
+    background-color: #376432;
+    border-color: black;
+}
