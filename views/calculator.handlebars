@@ -2,12 +2,12 @@
 
     <div class="container">
         <h4 class="title">Carbon Footprint Calculator</h4>
-        <hr>
+        <br>
         <br>
         <form id="surveyId">
              <fieldset class="form-group1">
                 <div class="row background">
-                    <legend class="col-form-label col-sm-5 pt-0">Count the members of your household:
+                    <legend class="col-form-label col-sm-5 pt-0"><h5>Count the members of your household:</h5>
                     </legend>
                     <div class="col-sm-7">
                         <div class="form-check">
@@ -59,7 +59,7 @@
             <br>
             <fieldset class="form-group2">
                 <div class="row background">
-                    <legend class="col-form-label col-sm-5 pt-0">Consider the size of your home:
+                    <legend class="col-form-label col-sm-5 pt-0"><h5>Consider the size of your home:</h5>
                     </legend>
                     <div class="col-sm-7">
                         <div class="form-check">
@@ -93,7 +93,7 @@
             <br>
             <fieldset class="form-group3">
                 <div class="row background">
-                    <legend class="col-form-label col-sm-5 pt-0">Evaluate your food choices:
+                    <legend class="col-form-label col-sm-5 pt-0"><h5>Evaluate your food choices:</h5>
                     </legend>
                     <div class="col-sm-7">
                         <div class="form-check">
@@ -137,10 +137,10 @@
             <br>
             <fieldset class="form-group4">
                 <div class="row background">
-                    <legend class="col-form-label col-sm-5 pt-0">Examine your water consumption:
+                    <legend class="col-form-label col-sm-5 pt-0"><h5>Examine your water consumption:</h5>
                     </legend>
                     <div class="col-sm-7">
-                        <h5 class="topicHead">How often do you run your dishwasher or washing machine each week?</h5>
+                        <p class="topicHead font-weight-bold">How often do you run your dishwasher or washing machine each week?</p>
                         <div class="form-check">
                             <input class="form-check-input fourth" type="radio" name="water" value="5">
                             <label class="form-check-label" for="1">
@@ -180,7 +180,7 @@
             <br>
             <fieldset class="form-group5">
                     <div class="row background">
-                        <legend class="col-form-label col-sm-5 pt-0">Determine how many household purchases (furniture, electronics, household gadgets, etc) you make each year:
+                        <legend class="col-form-label col-sm-5 pt-0"><h5>Determine how many household purchases (furniture, electronics, household gadgets, etc) you make each year:</h5>
                         </legend>
                         <div class="col-sm-7">
                             <div class="form-check">
@@ -220,10 +220,10 @@
                 <br>
                 <fieldset class="form-group6">
                     <div class="row background">
-                        <legend class="col-form-label col-sm-5 pt-0">Consider how much waste you produce:
+                        <legend class="col-form-label col-sm-5 pt-0"><h5>Consider how much waste you produce:</h5>
                         </legend>
                         <div class="col-sm-7">
-                            <h5 class="topicHead">How many kitchen-size garbage bags do you fill each week?</h5>
+                            <p class="topicHead font-weight-bold">How many kitchen-size garbage bags do you fill each week?</p>
                             <div class="form-check">
                                 <input class="form-check-input sixth" type="radio" name="waste" value="5">
                                 <label class="form-check-label" for="1">
@@ -313,10 +313,10 @@
                 <br>
                 <fieldset class="form-group8">
                     <div class="row background">
-                        <legend class="col-form-label col-sm-5 pt-0">Tally your annual transportation costs:
+                        <legend class="col-form-label col-sm-5 pt-0"><h5>Tally your annual transportation costs:</h5>
                         </legend>
                         <div class="col-sm-7 set1">
-                            <h5 class="topicHead">What is your personal vehicle usage?</h5>
+                            <p class="topicHead font-weight-bold">What is your personal vehicle usage?</p>
                             <div class="form-check">
                                 <input class="form-check-input eighth" type="radio" name="vehicle" value="12">
                                 <label class="form-check-label" for="1">
@@ -351,7 +351,7 @@
                         <br>
                         <div class="col-sm-5"></div>
                             <div class="col-sm-7 set2">
-                                <h5 class="topicHead">What is your public transportation usage?</h5>
+                                <p class="topicHead font-weight-bold">What is your public transportation usage?</p>
                                 <div class="form-check">
                                     <input class="form-check-input eighth" type="radio" name="public" value="12">
                                     <label class="form-check-label" for="1">
@@ -392,7 +392,7 @@
                             <br>
                         <div class="col-sm-5"></div>
                         <div class="col-sm-7 set3">
-                            <h5 class="topicHead">What is your air travel usage?</h5>
+                            <p class="topicHead font-weight-bold">What is your air travel usage?</p>
                             <div class="form-check">
                                 <input class="form-check-input eighth" type="radio" name="flight" value="6">
                                 <label class="form-check-label" for="1">
@@ -429,3 +429,5 @@
             </div>
         </form>
     </div>
+
+    {{> footer/footer-block}}
