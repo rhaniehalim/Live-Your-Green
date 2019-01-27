@@ -19,16 +19,16 @@ module.exports = function(app) {
     app.get("/signup", function(req, res) {
 
         if (req.user) {
-            res.redirect("/profile");
+            res.redirect("/index");
         }
         res.render("signup")
     });
     
     app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-        res.redirect("/profile");
-    }
+        if (req.user) {
+            res.redirect("/index");
+        }
     res.render("login")
     });
     

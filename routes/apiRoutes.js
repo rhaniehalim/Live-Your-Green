@@ -8,18 +8,13 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
    
-    if (err) { return next(err); }
-        if (!user) { 
-            res.status(401);
-            res.end(info.message);
-            return;
-        }
-    res.json("/profile");
-    // res.redirect("/profile")
+    res.json("/index");
+    
   });
 
     // app.post('/api/login', function(req, res, next) {
     //     passport.authenticate('local', function(err, user, info) {
+    //         console.log("req.body", req.body)
     //     console.log("hitting /api/login after incorrect password");
     //     if (err) { return next(err); }
     //     if (!user) { 
@@ -28,7 +23,7 @@ module.exports = function(app) {
     //         return;
     //     }
     
-    //     res.redirect("/profile")
+    //     res.json("index")
     
     //     })(req, res, next);
     // });
@@ -37,12 +32,14 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     }).then(function() {
         
     //   res.status(200).render("profile", data.dataValues.email);
         res.redirect(307, "/api/login")
+       
       
     }).catch(function(err) {
       console.log(err);
@@ -67,6 +64,7 @@ module.exports = function(app) {
         // Otherwise send back the user's email and id
         // Sending back a password, even a hashed password, isn't a good idea
         res.json({
+            name: req.user.name,
             email: req.user.email,
             id: req.user.id
         });

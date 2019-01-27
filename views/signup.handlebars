@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
 
-<head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
-</head>
+  <h1 class="display-4 title">Live Your Green</h1>
+  <p class="lead">You can evaluate how green your life is.</p>
+  <p class="lead">Use our carbon footprint calculator or find recycling
+    resources.</p>
+  <hr class="my-4">
 
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Sign Up Form</h2>
         <form class="signup">
+          <div class="form-group">
+            <label for="exampleInputName">Name</label>
+            <input type="name" class="form-control" id="name-input" placeholder="Name">
+          </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
@@ -33,17 +27,51 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <p>Or log in <a href="./login">here</a></p>
       </div>
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="assets/js/signup.js"></script>
+  {{!-- <a class="btn btn-primary btn-lg" id="signup" href="./signup" role="button">Sign Up</a>
+  <a class="btn btn-primary btn-lg" id="login" href="./login" role="button">Log in here</a> --}}
 
-</body>
+</div>
 
-</html>
+
+{{!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Sign Up Form</h2>
+      <form class="signup">
+        <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input type="name" class="form-control" id="name-input" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="email-input" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password-input" placeholder="Password">
+        </div>
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+        <button type="submit" class="btn btn-default">Sign Up</button>
+      </form>
+      <br />
+      <p>Or log in <a href="./login">here</a></p>
+    </div>
+  </div>
+</div> --}}
