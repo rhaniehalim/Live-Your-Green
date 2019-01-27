@@ -1,6 +1,36 @@
 body {
-    background: url(/images/pexels-photo-305558.jpeg);
+    background: url(/images/pexels-photo-305558mobile.jpeg);
+    background-attachment: fixed;
+    /* background-size: contain; */
     /* background: blue; */
+}
+
+@media only screen and (min-width: 450px) {
+    body {
+        background: url(/images/pexels-photo-305558sm.jpeg);
+        background-attachment: fixed;
+        /* background-size: contain; */
+        /* background: blue; */
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    body {
+        background: url(/images/pexels-photo-305558md.jpeg);
+        background-attachment: fixed;
+        /* background-size: contain; */
+        /* background: blue; */
+    }
+}
+
+
+@media only screen and (min-width: 1300px) {
+    body {
+        background: url(/images/pexels-photo-305558lg.jpeg);
+        background-attachment: fixed;
+        /* background-size: contain; */
+        /* background: blue; */
+    }
 }
 
 .jumbotron {
@@ -17,14 +47,20 @@ body {
 }
 
 .btn-primary {
-    background-color: #446832;
+    background-color: #376432;
+    /* background-color: #446832; */
     /* border-color: #739e5e; */
     border-color: black;
-    color: black;
+    /* color: black; */
     margin: 0, 15px; 
 }
 
 .btn-primary:hover {
-    background-color: #376432;
     border-color: black;
+    background-color: #376432;
+
+}
+
+#login {
+    padding: 0, 20px;
 }
