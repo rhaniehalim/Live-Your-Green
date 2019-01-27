@@ -1,5 +1,6 @@
 var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+var db = require("../models");
 
 //will need to be updated based on handlebars page links
 module.exports = function(app) {
@@ -39,7 +40,32 @@ module.exports = function(app) {
     // });
 
     app.get("/index", function(req, res) {
-        res.render("index")
+        db.Footprint.findAll({
+            where: {
+                id: req.params.id
+            },
+        })
+        .then(function(totalFootprint) {
+            res.render("index", {
+                name: "Meghan", //need to change to the user's custom name
+                totalFootprint: totalFootprint,
+                household_members: household_members,
+                home_size: home_size,
+                food_choice: food_choice,
+                food_source: food_source,
+                waterTotal: waterTotal,
+                purchases: purchases,
+                waste: waste,
+                recycle: recycleArray,
+                personal_vehicle: personal_vehicle,
+                public_transportation: public_transportation,
+                air_travel: air_travel
+            });
+        })
+        .catch(function(err) {
+            res.json(err);
+            console.log(err);
+        })
         });
 
     // footprint calculator route
