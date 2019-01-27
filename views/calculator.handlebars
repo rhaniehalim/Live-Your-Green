@@ -1,12 +1,12 @@
     {{> header/header-block}}
 
     <div class="container">
-        <h2>Carbon Footprint Calculator</h2>
+        <h4 class="title">Carbon Footprint Calculator</h4>
         <hr>
         <br>
         <form id="surveyId">
              <fieldset class="form-group1">
-                <div class="row">
+                <div class="row background">
                     <legend class="col-form-label col-sm-5 pt-0">Count the members of your household:
                     </legend>
                     <div class="col-sm-7">
@@ -58,7 +58,7 @@
             <hr>
             <br>
             <fieldset class="form-group2">
-                <div class="row">
+                <div class="row background">
                     <legend class="col-form-label col-sm-5 pt-0">Consider the size of your home:
                     </legend>
                     <div class="col-sm-7">
@@ -92,7 +92,7 @@
             <hr>
             <br>
             <fieldset class="form-group3">
-                <div class="row">
+                <div class="row background">
                     <legend class="col-form-label col-sm-5 pt-0">Evaluate your food choices:
                     </legend>
                     <div class="col-sm-7">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <div class="form-group3">
-                    <div class="row">
+                    <div class="row background">
                         <select id="foodQ" class="custom-select fourth-half">
                             <option selected>Where does your food come from?</option>
                             <option value="12">Most of my food comes prepackaged (frozen meals, cereal, boxed snacks)</option>
@@ -136,11 +136,11 @@
             <hr>
             <br>
             <fieldset class="form-group4">
-                <div class="row">
+                <div class="row background">
                     <legend class="col-form-label col-sm-5 pt-0">Examine your water consumption:
                     </legend>
                     <div class="col-sm-7">
-                        <h5>How often do you run your dishwasher or washing machine each week?</h5>
+                        <h5 class="topicHead">How often do you run your dishwasher or washing machine each week?</h5>
                         <div class="form-check">
                             <input class="form-check-input fourth" type="radio" name="water" value="5">
                             <label class="form-check-label" for="1">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
             
-                <div class="form-group4 row">
+                <div class="form-group4 row background">
                     <select id="waterQ" class="custom-select fourth-half">
                         <option selected>Do you have both a washing machine and a dishwasher?</option>
                         <option value="2">Yes</option>
@@ -179,7 +179,7 @@
             <hr>
             <br>
             <fieldset class="form-group5">
-                    <div class="row">
+                    <div class="row background">
                         <legend class="col-form-label col-sm-5 pt-0">Determine how many household purchases (furniture, electronics, household gadgets, etc) you make each year:
                         </legend>
                         <div class="col-sm-7">
@@ -219,11 +219,11 @@
                 <hr>
                 <br>
                 <fieldset class="form-group6">
-                    <div class="row">
+                    <div class="row background">
                         <legend class="col-form-label col-sm-5 pt-0">Consider how much waste you produce:
                         </legend>
                         <div class="col-sm-7">
-                            <h5>How many kitchen-size garbage bags do you fill each week?</h5>
+                            <h5 class="topicHead">How many kitchen-size garbage bags do you fill each week?</h5>
                             <div class="form-check">
                                 <input class="form-check-input sixth" type="radio" name="waste" value="5">
                                 <label class="form-check-label" for="1">
@@ -260,9 +260,9 @@
                 <hr>
                 <br>
                 <fieldset class="form-group7">
-                    <div class="row">
-                        <legend class="col-form-label col-sm-5 pt-0">Identify the types of waste that you recycle:
-                        </legend>
+                    <div class="row background">
+                        <legend class="col-form-label col-sm-5 pt-0"><h5>Identify the types of waste that you recycle:
+                        </h5></legend>
                         <div class="col-sm-7" id="recycle">
                             <div class="form-check">
                                 <input class="form-check-input seventh" type="checkbox" name="recycle" value="24">
@@ -312,11 +312,11 @@
                 <hr>
                 <br>
                 <fieldset class="form-group8">
-                    <div class="row">
+                    <div class="row background">
                         <legend class="col-form-label col-sm-5 pt-0">Tally your annual transportation costs:
                         </legend>
                         <div class="col-sm-7 set1">
-                            <h5>What is your personal vehicle usage?</h5>
+                            <h5 class="topicHead">What is your personal vehicle usage?</h5>
                             <div class="form-check">
                                 <input class="form-check-input eighth" type="radio" name="vehicle" value="12">
                                 <label class="form-check-label" for="1">
@@ -348,10 +348,10 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-7"></div>
-                            <div class="col-sm-5 set2">
-                                <h5>What is your public transportation usage?</h5>
+                        <br>
+                        <div class="col-sm-5"></div>
+                            <div class="col-sm-7 set2">
+                                <h5 class="topicHead">What is your public transportation usage?</h5>
                                 <div class="form-check">
                                     <input class="form-check-input eighth" type="radio" name="public" value="12">
                                     <label class="form-check-label" for="1">
@@ -389,10 +389,10 @@
                                     </label>
                                 </div> 
                             </div>
-                    <div class="row">
-                        <div class="col-sm-7"></div>
-                        <div class="col-sm-5 set3">
-                            <h5>What is your air travel usage?</h5>
+                            <br>
+                        <div class="col-sm-5"></div>
+                        <div class="col-sm-7 set3">
+                            <h5 class="topicHead">What is your air travel usage?</h5>
                             <div class="form-check">
                                 <input class="form-check-input eighth" type="radio" name="flight" value="6">
                                 <label class="form-check-label" for="1">
@@ -419,13 +419,12 @@
                             </div>
                         </div>
                     </div>
-                    </div>
                 </fieldset>            
                 <br>
                 <br>
             <div class="form-group row">
                 <div class="col-sm-10">
-                <button id="submitBtn" type="submit" class="btn btn-secondary-lg">Calculate My Footprint</button>
+                <button id="submitBtn" type="submit" class="btn btn-primary">Calculate My Footprint</button>
                 </div>
             </div>
         </form>
