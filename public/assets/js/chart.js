@@ -1,9 +1,9 @@
 //var db = require("../models");
 //var footprintdata = require("../js/app");
-var Chart = require('dist/Chart.bundle.js');
+//var Chart = require("../scripts/Chart.min.js");
 
 
-Chart, function(Chart){
+function newChart (Chart) {
     var ctx = $("#myChart");
 
     var myChart = new Chart(ctx, {
