@@ -46,6 +46,14 @@ body {
     
 }
 
+.modal-title {
+    font-family: 'Bad Script', cursive;
+}
+
+.modal-content {
+    background: #b3cad5;
+}
+
 .btn-primary {
     background-color: #376432;
     /* background-color: #446832; */
