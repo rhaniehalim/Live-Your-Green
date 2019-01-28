@@ -50,7 +50,7 @@ body {
     background-color: #376432;
     /* background-color: #446832; */
     /* border-color: #739e5e; */
-    border-color: black;
+    border-color: white;
     /* color: black; */
     margin: 0, 15px; 
 }
@@ -64,3 +64,28 @@ body {
 #login {
     padding: 0, 20px;
 }
+
+/* Survey styling */
+div.background {
+    background-color: #ffffff;
+    opacity: 0.75;
+    filter: alpha(opacity=60); 
+    padding: 20px;
+}
+  
+.subtitle {
+    /* font-family: 'Kaushan Script', cursive; */
+    font-family: 'Bad Script', cursive;
+    /* font-family: 'Shadows Into Light Two', cursive; */
+    font-size: 3rem;
+    
+}
+
+footer { 
+    width:100%; 
+    background-color: snow; 
+    min-height:250px; 
+    padding:25px 0px 10px 0px ;
+    margin-top: 20px;
+}
+
