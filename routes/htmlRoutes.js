@@ -39,7 +39,7 @@ module.exports = function(app) {
     // res.render("index")
     // });
 
-    app.get("/index", function(req, res) {
+    app.get("/index", isAuthenticated, function(req, res) {
     res.render("index")
     });
 
@@ -77,7 +77,7 @@ module.exports = function(app) {
     //     res.render("calculator");
     // });
 
-    app.get("/footprints", function(req, res) {
+    app.get("/footprints", isAuthenticated, function(req, res) {
         res.render("calculator");
     });
 
@@ -86,7 +86,7 @@ module.exports = function(app) {
     //     res.render("maps");
     // });
 
-    app.get("/recyclinglocations", function(req, res) {
+    app.get("/recyclinglocations", isAuthenticated, function(req, res) {
         res.render("maps");
     });
 };
