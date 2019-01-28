@@ -1,8 +1,10 @@
 // *** Dependencies
 // =============================================================
+
 var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
+
 
 
 // Sets up the Express App
@@ -26,7 +28,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
@@ -37,6 +38,8 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
+
+require('dotenv').config()
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function() {
