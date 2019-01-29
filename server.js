@@ -4,7 +4,7 @@
 var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
-
+var cors = require("cors");
 
 
 // Sets up the Express App
@@ -17,6 +17,7 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing (used for posts and puts)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 // Static directory
 app.use(express.static("public"));
