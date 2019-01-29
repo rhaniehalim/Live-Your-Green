@@ -9,7 +9,8 @@ module.exports = function (app) {
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     console.log("req: ", req.user.dataValues.id);
     
-    res.json({'id': req.user.dataValues.id} );
+    // res.json({'id': req.user.dataValues.id} );
+    res.json(`/index?user=${req.user.dataValues.id}`)
 
   });
 

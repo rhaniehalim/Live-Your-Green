@@ -28,9 +28,11 @@ $(document).ready(function() {
         email: email,
         password: password
       }).then(function(data) {
+        console.log("hitting it?")
         console.log(data.id);
-        localStorage.setItem('id', data.id);
-        window.location.replace("/index");
+        // localStorage.setItem('id', data.id);
+        // window.location.replace("/index");
+        window.location.replace(data);
         // If there's an error, log the error
       }).catch(function(err) {
         console.log(err.responseText);
