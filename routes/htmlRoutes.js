@@ -74,19 +74,11 @@ module.exports = function(app) {
     //     });
 
     // footprint calculator route
-    // app.get("/footprints", isAuthenticated, function(req, res) {
-    //     res.render("calculator");
-    // });
-
     app.get("/footprints", isAuthenticated, function(req, res) {
         res.render("calculator");
     });
 
     // earth911 route
-    // app.get("/recyclinglocations", isAuthenticated, function(req, res) {
-    //     res.render("maps");
-    // });
-
     app.get("/recyclinglocations", isAuthenticated, function(req, res) {
         res.render("maps");
     });
