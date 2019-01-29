@@ -40,6 +40,7 @@ module.exports = function(app) {
     // });
 
     app.get("/index", isAuthenticated, function(req, res) {
+        
     res.render("index")
     });
 
