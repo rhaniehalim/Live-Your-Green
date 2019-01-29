@@ -49,5 +49,15 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       }
     });
+
+    Footprint.associate = function(models) {
+      Footprint.belongsTo(models.User, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
+
+    
     return Footprint;
   };

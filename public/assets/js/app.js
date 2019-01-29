@@ -55,14 +55,21 @@ $(document).ready(function () {
       alert("Please complete all questions in the survey! Thanks!");
     } else {
       // If we have a number for total footprint 
-      sendSurvey(userInput.household_members, userInput.home_size, userInput.food_choice, userInput.food_source,
+      var userid = localStorage.getItem("id");
+      console.log("local storage id", localStorage.getItem("id"));
+
+      sendSurvey(userid, userInput.household_members, userInput.home_size, userInput.food_choice, userInput.food_source,
         userInput.waterTotal, userInput.purchases, userInput.waste, userInput.recycle, userInput.personal_vehicle,
         userInput.public_transportation, userInput.air_travel, userInput.totalFootprint);
     };
 
+
+    
+
     // Send the POST request.
-    function sendSurvey(household_members, home_size, food_choice, food_source, waterTotal, purchases, waste, recycleArray, personal_vehicle, public_transportation, air_travel, totalFootprint) {
+    function sendSurvey(userid, household_members, home_size, food_choice, food_source, waterTotal, purchases, waste, recycleArray, personal_vehicle, public_transportation, air_travel, totalFootprint) {
       $.post("/api/footprints", {
+        UserId: userid,
         household_members: household_members,
         home_size: home_size,
         food_choice: food_choice,
