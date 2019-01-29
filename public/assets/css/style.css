@@ -1,6 +1,7 @@
 body {
     background: url(/images/pexels-photo-305558mobile.jpeg);
     background-attachment: fixed;
+    opacity: 80%;
     /* background-size: contain; */
     /* background: blue; */
 }
@@ -9,6 +10,8 @@ body {
     body {
         background: url(/images/pexels-photo-305558sm.jpeg);
         background-attachment: fixed;
+        opacity: 80%;
+
         /* background-size: contain; */
         /* background: blue; */
     }
@@ -18,6 +21,8 @@ body {
     body {
         background: url(/images/pexels-photo-305558md.jpeg);
         background-attachment: fixed;
+        opacity: 80%;
+
         /* background-size: contain; */
         /* background: blue; */
     }
@@ -28,6 +33,8 @@ body {
     body {
         background: url(/images/pexels-photo-305558lg.jpeg);
         background-attachment: fixed;
+        opacity: 80%;
+
         /* background-size: contain; */
         /* background: blue; */
     }
@@ -110,8 +117,8 @@ div.background2 {
 
 div.background3 {
     background-color: #ffffff;
-    opacity: 0.75;
-    filter: alpha(opacity=95); 
+    opacity: 0.85;
+    filter: alpha(opacity=80); 
     border-radius: 25px;
     padding: 20px;
     margin: 20px;

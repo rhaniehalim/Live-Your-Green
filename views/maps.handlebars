@@ -1,9 +1,22 @@
     {{> header/header-block}}
-<form id="userInput">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h3 class="title">Find Local Recycling Locations</h3>
+        <p class="lead"><strong>Enter your zip code to find businesses that can recycle your waste.</strong></p>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+  <div class="row">
+	  <form id="userInput">
 		<input type="text" class="form-control form-field" id="zipcode" required>
-		<button type="submit"> search </button>
+		<button type="submit" class="btn-primary"> Search Your Zip Code </button>
 	</form>
 	<div class="result-container"></div>
+  </div>
+</div>
+
 
 
     {{> footer/footer-block}}
