@@ -43,6 +43,7 @@ body {
     /* font-family: 'Shadows Into Light Two', cursive; */
     font-size: 6rem;
     padding-top: 50px;
+    padding-bottom: 20px;
     
 }
 
@@ -103,6 +104,23 @@ div.background2 {
     opacity: 0.75;
     filter: alpha(opacity=95); 
     border-radius: 25px;
+    padding: 35px;
+    margin: 30px;
+}
+
+div.background3 {
+    background-color: #ffffff;
+    opacity: 0.75;
+    filter: alpha(opacity=95); 
+    border-radius: 25px;
     padding: 20px;
     margin: 20px;
+}
+
+#checklist {
+    padding: 20px;
+}
+
+.ideaslist {
+    padding: 10px;
 }
