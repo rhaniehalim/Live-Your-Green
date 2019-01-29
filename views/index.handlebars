@@ -30,16 +30,28 @@
   </div>
 </div>
 
-<div class="container-fluid bg-grey">
-  <div class="row">
-    <div class="col-sm-8">
-        <canvas id="myChart"></canvas>
-        <h2>chart goes here....</h2>
-    </div>
-    <div class="col-sm-4">
-      <h2>How Your Footprint Compares</h2>
-      <h4><strong>Your Footprint:</strong>{{totalFootprint}}</h4> 
-      <p><strong>Average Footprint:</strong>60</p>
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-sm-6 background2">
+      <h2>Checklist To Reduce Your Footprint</h2>
+      <panel>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="Check1">
+          <label class="form-check-label" for="defaultCheck1">
+            Default checkbox
+          </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Check2">
+            <label class="form-check-label" for="defaultCheck2">
+              checkbox
+            </label>
+          </div>
+        </panel>
+      </div>
+    <div class="col-sm-5 background2">
+      <h2>The World's Carbon Footprint (%)</h2>
+        <canvas id="myChart" width="100px" height="100px"></canvas>
     </div>
   </div>
 </div>

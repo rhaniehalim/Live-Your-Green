@@ -93,14 +93,14 @@ $(document).ready(function () {
               $("#matchInfo").empty();
               var matchName = $("<p>").html("<strong>" + data.totalFootprint + "<strong>");
               $("#matchInfo").append(matchName);
-              var message = $("<p>").html("Congratulations! The average consumer has a footprint value of sixty. Check out our resources for new ideas to keep living your green.");
+              var message = $("<p>").html("Congratulations! The average consumer has a footprint value of 60. Check out our resources for new ideas to keep living your green.");
               $("#matchInfo").append(message);
             }
             else if (data.totalFootprint > 60) {
               $("#matchInfo").empty();
               var matchName = $("<p>").html("<strong>" + data.totalFootprint + "<strong>");
               $("#matchInfo").append(matchName);
-              var message = $("<p>").html("The average consumer has a footprint value of sixty. Check out our resources to find easy ways to reduce your carbon footprint and start living your green.");
+              var message = $("<p>").html("The average consumer has a footprint value of 60. Check out our resources to find easy ways to reduce your carbon footprint and start living your green.");
               $("#matchInfo").append(message);
             }
 

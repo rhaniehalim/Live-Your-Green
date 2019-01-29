@@ -21,6 +21,7 @@
   "homepage": "https://github.com/rhaniehalim/Project-Twon#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "chart.js": "^2.7.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",

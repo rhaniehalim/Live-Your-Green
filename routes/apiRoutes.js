@@ -86,10 +86,10 @@ module.exports = function (app) {
   });
 
   // Get route for retrieving a single survey
-  app.get("/api/footprints/:id", function (req, res) {
+  app.get("/api/index", function(req, res) {
     db.Footprint.findOne({
       where: {
-        id: req.params.id
+        id: req.body.userId
       }
     })
       .then(function (dbFootprint) {
