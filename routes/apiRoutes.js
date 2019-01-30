@@ -134,16 +134,16 @@ module.exports = function (app) {
   });
 
 
-  //this is the new route for the Earth911 api, I'm struggling with returning the object back to the front side where it can be appended to the page.
-  app.post("/api/recycling", function (req, res) {
+//Earth911 API route
+    app.post("/api/recycling", function (req, res) {
     var locationList = []
     var zipcode = req.body.zipcode;
 
-    axios.get("http://api.earth911.com/earth911.getPostalData?postal_code=" + zipcode + "&country=US&api_key=" + "15fff0f9493d0bdc").then(function (response) {
+    axios.get("http://api.earth911.com/earth911.getPostalData?postal_code=" + zipcode + "&country=US&api_key=" + process.env.API_KEY).then(function (response) {
       // console.log(response.data)
       var data = response.data;
 
-      axios.get("http://api.earth911.com/earth911.searchLocations?latitude=" + data.result.latitude + "&longitude=" + data.result.longitude + "&api_key=" + "15fff0f9493d0bdc" + "&max_results=10").then(function (response2) {
+      axios.get("http://api.earth911.com/earth911.searchLocations?latitude=" + data.result.latitude + "&longitude=" + data.result.longitude + "&api_key=" + process.env.API_KEY + "&max_results=10").then(function (response2) {
 
         var data2 = response2.data;
         console.log(data2);
@@ -152,7 +152,7 @@ module.exports = function (app) {
         data2.result.forEach(function (result) {
           // console.log(result)
 
-          axios.get("http://api.earth911.com/earth911.getLocationDetails?location_id=" + result.location_id + "&api_key=" + "15fff0f9493d0bdc").then(function(response3){
+          axios.get("http://api.earth911.com/earth911.getLocationDetails?location_id=" + result.location_id + "&api_key=" + process.env.API_KEY).then(function(response3){
            results = results+1;
            console.log(results)
             var data3 = response3.data;
