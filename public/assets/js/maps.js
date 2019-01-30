@@ -60,11 +60,9 @@ function searchzip(zipcode) {
 	}).then(function(data) {
 	  console.log("hitting it?")
 	  console.log(data);
-	  // localStorage.setItem('id', data.id);
-	  // window.location.replace("/index");
-	//   window.location.replace(data);
-	  // If there's an error, log the error
+	 //where we want the code to print to the page
 	}).catch(function(err) {
+		console.log("maps");
 	  console.log(err.responseText);
 	  $(".error").text(err.responseText);
 	});

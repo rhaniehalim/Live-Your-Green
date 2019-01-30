@@ -146,33 +146,37 @@ module.exports = function (app) {
       axios.get("http://api.earth911.com/earth911.searchLocations?latitude=" + data.result.latitude + "&longitude=" + data.result.longitude + "&api_key=" + "15fff0f9493d0bdc" + "&max_results=10").then(function (response2) {
 
         var data2 = response2.data;
-        // console.log(data2.result.location_id);
+        console.log(data2);
 
+        var results = 0;
         data2.result.forEach(function (result) {
           // console.log(result)
 
           axios.get("http://api.earth911.com/earth911.getLocationDetails?location_id=" + result.location_id + "&api_key=" + "15fff0f9493d0bdc").then(function(response3){
-            // console.log(response3.data)
+           results = results+1;
+           console.log(results)
             var data3 = response3.data;
             var locationObj = data3.result[result.location_id];
             // console.log(locationObj);
-
             var object = {
               description: locationObj.description,
               address: locationObj.address,
               city: locationObj.city,
               country: locationObj.country,
             };
+           
+          
+          
             // console.log(object);
-
             locationList.push(object);
-
-
-            
+            if (results == data2.num_results) {
+              console.log("locationList", locationList)
+              res.json(locationList)
+            }
           })
             
         })
-        
+       
       })
      
     })
