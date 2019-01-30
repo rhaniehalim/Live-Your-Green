@@ -135,7 +135,7 @@ module.exports = function (app) {
 
 
   //this is the new route for the Earth911 api, I'm struggling with returning the object back to the front side where it can be appended to the page.
-  app.get("/api/recycling", function (req, res) {
+  app.post("/api/recycling", function (req, res) {
     var locationList = []
     var zipcode = req.body.zipcode;
 
@@ -191,3 +191,4 @@ module.exports = function (app) {
   // })
 
 }
+
