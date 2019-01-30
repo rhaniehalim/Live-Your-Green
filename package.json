@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/rhaniehalim/Project-Twon#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt-nodejs": "0.0.3",
     "chart.js": "^2.7.3",
     "connect-flash": "^0.1.1",
