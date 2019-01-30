@@ -22,16 +22,20 @@ function searchzip(zipcode) {
 	  zipcode: zipcode
 	}).then(function(data) {
 	  console.log(data);
-	 var container = $('<article>');
-	var div1 = $(`<div>${ data.description }</div>`);
-	var div2 = $(`<div>${ data.address }</div>`);
-	var div3 = $(`<div>${ data.city }</div>`);
-	var div4 = $(`<div>${ data.country }</div>`);
-	container.append(div1);
-	container.append(div2);
-	container.append(div3);
-	container.append(div4);
-	$('.result-container').append(container)
+		$('.result-container').empty()
+		for (let i = 0; i < data.length; i++) {
+			  var container = $('<div class = "eachresult">');
+				var div1 = $(`<div>${ data[i].description }</div>`);
+				var div2 = $(`<div>${ data[i].address }</div>`);
+				var div3 = $(`<div>${ data[i].city }</div>`);
+				var div4 = $(`<div>${ data[i].country }</div>`);
+				container.append(div1);
+				container.append(div2);
+				container.append(div3);
+				container.append(div4);
+				$('.result-container').append(container)
+		}
+	
 	}).catch(function(err) {
 		console.log("maps");
 	  console.log(err.responseText);
