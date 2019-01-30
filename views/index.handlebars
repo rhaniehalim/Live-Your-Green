@@ -1,77 +1,64 @@
 
 {{> header/header-block}}
 
-  {{!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
-    </div>
-  </div> --}}
   {{id}}
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
       <h3 class="title">Your Carbon Footprint Dashboard</h3>
-      <p>Once you've completed the carbon footprint calculation survey, your results will show up here. Take the survey again once you've taken steps to lower your carbon footprint to see your current score.</p>
+        <p class="lead"><strong>Once you've completed the carbon footprint calculation survey, your results will show up here. Take the survey again once you've taken steps to lower your carbon footprint to see your current score.</strong></p>
       <a href="footprints"><button class="btn btn-primary btn-lg">Calculate Your Carbon Footprint</button></a>
     </div>
     <div class="col-sm-4">
     </div>
   </div>
 </div>
-
+<br>
+<br>
+<div class="row"></div>
 <div class="container-fluid">
   <div class="row ">
-    <div class="col-sm-6 background2">
-      <h2>Checklist To Reduce Your Footprint</h2>
-      <panel>
-        <div class="form-check">
+    <div class="col-sm-5 background2">
+      <h2>Ideas to Reduce Your Footprint</h2>
+      <panel id="checklist">
+        <div class="form-check ideaslist">
           <input class="form-check-input" type="checkbox" id="Check1">
-          <label class="form-check-label" for="defaultCheck1">
+          <label class="form-check-label">
             Try eating meat less frequently. Each pound of beef takes more than 5,000 gallons of water to produce! <a href="https://www.huffingtonpost.com/entry/cutting-back-on-meat-consumption-could-help-end-hunger-by-2030-experts_us_55f3424ee4b077ca094f27a5">Learn more.</a>
           </label>
         </div>
-        <div class="form-check">
+        <div class="form-check ideaslist">
             <input class="form-check-input" type="checkbox" id="Check2">
-            <label class="form-check-label" for="defaultCheck2">
+            <label class="form-check-label">
               Unplug your electronics unless you're using them. "Vampire power" contributes to nearly $19 billion in energy costs each year.
             </label>
           </div>
-          <div class="form-check">
+          <div class="form-check ideaslist">
           <input class="form-check-input" type="checkbox" id="Check3">
-          <label class="form-check-label" for="defaultCheck1">
+          <label class="form-check-label">
             Drive less! Choose to walk, bike or take public transit. If you do need to drive try to combine your errands. <a href="https://www.denver.org/about-denver/transportation/public-transportation/">Learn more about Denver's transit options.</a>
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="Check3">
-          <label class="form-check-label" for="defaultCheck1">
+        <div class="form-check ideaslist">
+          <input class="form-check-input" type="checkbox" id="Check4">
+          <label class="form-check-label">
             Spend less on fast fashion. Consider buying second-hand or quality items over the latest trends. <a href="https://www.treehugger.com/htgg/how-to-go-green-wardrobe.html">Learn more.</a>
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="Check3">
-          <label class="form-check-label" for="defaultCheck1">
+        <div class="form-check ideaslist">
+          <input class="form-check-input" type="checkbox" id="Check5">
+          <label class="form-check-label">
             Plant a garden and shop local for produce and groceries. <a href="https://www.bhg.com/gardening/yard/garden-care/ten-steps-to-beginning-a-garden/">Read more about how to start your own garden.</a>
           </label>
         </div>
-        
         </panel>
       </div>
-    <div class="col-sm-5 background2">
+    <div class="col-sm-5 background3">
       <h2>The World's Carbon Footprint (%)</h2>
         <canvas id="myChart" width="100px" height="100px"></canvas>
     </div>
+   <div class="col-sm-1"></div>  
+
   </div>
 </div>
 
