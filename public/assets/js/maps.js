@@ -24,7 +24,11 @@ function searchzip(zipcode) {
 	  console.log(data);
 		$('.result-container').empty()
 		for (let i = 0; i < data.length; i++) {
-			  var container = $('<div class = "eachresult">');
+				var container = $('<div class = "eachresult">');
+				container.addClass("card");
+				container.addClass("border-dark");
+				container.addClass("mb-3");
+				container.attr({ "style": "max-width: 25rem"});
 				var div1 = $(`<div>${ data[i].description }</div>`);
 				var div2 = $(`<div>${ data[i].address }</div>`);
 				var div3 = $(`<div>${ data[i].city }</div>`);
