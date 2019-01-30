@@ -1,6 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
-var flash = require('connect-flash');
+var axios = require("axios");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -8,7 +8,7 @@ module.exports = function (app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     console.log("req: ", req.user.dataValues.id);
-    
+
     // res.json({'id': req.user.dataValues.id} );
     res.json(`/index?user=${req.user.dataValues.id}`)
 
@@ -86,7 +86,7 @@ module.exports = function (app) {
   });
 
   // Get route for retrieving a single survey
-  app.get("/api/index", function(req, res) {
+  app.get("/api/index", function (req, res) {
     db.Footprint.findOne({
       where: {
         id: req.body.userId
@@ -99,29 +99,29 @@ module.exports = function (app) {
 
   // POST route for saving a new footprint survey
   app.post("/api/footprints", function (req, res) {
-      console.log("req.body api route", req.body);
+    console.log("req.body api route", req.body);
     // db.User.findAll({
     //   include: [
     //     {model: }
     //   ]
     // })
 
-      db.Footprint.create({
-        UserId: req.body.UserId,
-        household_members: req.body.household_members,
-        home_size: req.body.home_size,
-        food_choice: req.body.food_choice,
-        food_source: req.body.food_source,
-        waterTotal: req.body.waterTotal,
-        purchases: req.body.purchases,
-        waste: req.body.waste,
-        recycle: req.body.recycle,
-        personal_vehicle: req.body.personal_vehicle,
-        public_transportation: req.body.public_transportation,
-        air_travel: req.body.air_travel,
-        totalFootprint: req.body.totalFootprint
-      })
-    
+    db.Footprint.create({
+      UserId: req.body.UserId,
+      household_members: req.body.household_members,
+      home_size: req.body.home_size,
+      food_choice: req.body.food_choice,
+      food_source: req.body.food_source,
+      waterTotal: req.body.waterTotal,
+      purchases: req.body.purchases,
+      waste: req.body.waste,
+      recycle: req.body.recycle,
+      personal_vehicle: req.body.personal_vehicle,
+      public_transportation: req.body.public_transportation,
+      air_travel: req.body.air_travel,
+      totalFootprint: req.body.totalFootprint
+    })
+
 
       .then(function (dbFootprint) {
         res.json(dbFootprint);
@@ -133,4 +133,62 @@ module.exports = function (app) {
       })
   });
 
-};
+
+  //this is the new route for the Earth911 api, I'm struggling with returning the object back to the front side where it can be appended to the page.
+  app.post("/api/recycling", function (req, res) {
+    var locationList = []
+    var zipcode = req.body.zipcode;
+
+    axios.get("http://api.earth911.com/earth911.getPostalData?postal_code=" + zipcode + "&country=US&api_key=" + "15fff0f9493d0bdc").then(function (response) {
+      // console.log(response.data)
+      var data = response.data;
+
+      axios.get("http://api.earth911.com/earth911.searchLocations?latitude=" + data.result.latitude + "&longitude=" + data.result.longitude + "&api_key=" + "15fff0f9493d0bdc" + "&max_results=10").then(function (response2) {
+
+        var data2 = response2.data;
+        console.log(data2);
+
+        var results = 0;
+        data2.result.forEach(function (result) {
+          // console.log(result)
+
+          axios.get("http://api.earth911.com/earth911.getLocationDetails?location_id=" + result.location_id + "&api_key=" + "15fff0f9493d0bdc").then(function(response3){
+           results = results+1;
+           console.log(results)
+            var data3 = response3.data;
+            var locationObj = data3.result[result.location_id];
+            // console.log(locationObj);
+            var object = {
+              description: locationObj.description,
+              address: locationObj.address,
+              city: locationObj.city,
+              country: locationObj.country,
+            };
+           
+          
+          
+            // console.log(object);
+            locationList.push(object);
+            if (results == data2.num_results) {
+              console.log("locationList", locationList)
+              res.json(locationList)
+            }
+          })
+            
+        })
+       
+      })
+     
+    })
+    // .then(function() {
+    //   res.json(locationList);
+    // });
+
+    
+  })
+  // .then(function() {
+  //   console.log("location list: ", locationList)
+  // })
+
+}
+
